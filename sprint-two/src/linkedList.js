@@ -48,4 +48,5 @@ var Node = function(value) {
  * addToTail: constant time
  * removeHead: constant time
  * contains: linear time
+ * Total: linear time
  */
