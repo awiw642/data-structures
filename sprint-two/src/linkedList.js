@@ -15,6 +15,29 @@ var LinkedList = function() {
     }
   };
 
+  list.removeTail = function removeTail (previousNode, currentNode = list.head) {
+    if (currentNode.next === null) {
+      if (previousNode === undefined) {
+        list.removeHead();
+      } else { list.tail = previousNode; previousNode.next = null; }
+    } else {
+      removeTail(currentNode, currentNode.next);
+    }
+  };
+
+  list.addToHead = function(value) {
+    let newHeadNode = Node(value);
+
+    if (!list.head) {
+      list.head = newHeadNode;
+      list.tail = newHeadNode;
+    } else {
+      let previousHead = list.head;
+      list.head = newHeadNode;
+      list.head.next = previousHead;
+    }
+  };
+
   list.removeHead = function () {
     let value = list.head.value;
     list.head = list.head.next;
@@ -46,7 +69,10 @@ var Node = function(value) {
 /*
  * Complexity: What is the time complexity of the above functions?
  * addToTail: constant time
+ * addToHead: constant time
  * removeHead: constant time
+ * removeTail: linear time
  * contains: linear time
  * Total: linear time
  */
+
