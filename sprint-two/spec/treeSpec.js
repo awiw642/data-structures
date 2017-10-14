@@ -41,4 +41,17 @@ describe('tree', function() {
     expect(tree.contains(8)).to.equal(true);
   });
 
+  it('should return the target node', function() {
+    tree.addChild(1);
+    tree.addChild(2);
+    tree.children[0].addChild(3);
+    tree.children[0].addChild(4);
+    tree.children[1].addChild(5);
+    expect(typeof tree.getNode(4)).to.equal('object');
+    expect(tree.getNode(4).value).to.equal(4);
+    expect(tree.getNode(1).value).to.equal(1);
+    expect(Array.isArray(tree.getNode(1).children)).to.equal(true);
+    expect(tree.getNode(1).children.length).to.equal(2);
+  });
+
 });
