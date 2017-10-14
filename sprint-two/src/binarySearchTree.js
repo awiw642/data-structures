@@ -1,8 +1,8 @@
 var BinarySearchTree = function(value) {
   let tree = Object.create(BinarySearchTree.methods);
 
-  tree.left = undefined; // lower values
-  tree.right = undefined; // higher values
+  tree.left = undefined; // Lower values
+  tree.right = undefined; // Higher values
   tree.value = value;
 
   return tree;

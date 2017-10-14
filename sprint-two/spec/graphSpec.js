@@ -68,4 +68,8 @@ describe('graph', function() {
     expect(graph.hasEdge(3, 5)).to.equal(true);
     expect(graph.hasEdge(5, 5)).to.equal(true);
   });
+
+  it('should throw an error if a callback is not passed to forEachNode', function() {
+    expect(graph.forEachNode(true)).to.throw(undefined);
+  });
 });
