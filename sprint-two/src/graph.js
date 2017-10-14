@@ -47,10 +47,12 @@ Graph.prototype.removeEdge = function(fromNode, toNode) {
 
 // Pass in a callback which will be executed on each node of the graph.
 Graph.prototype.forEachNode = function(cb) {
+  if (typeof cb !== 'function') { throw undefined; }
   for (let node in this.nodes) {
     cb(node);
   }
 };
+
 
 /*
  * Complexity: What is the time complexity of the aboveffu ations di* addNode: constant
